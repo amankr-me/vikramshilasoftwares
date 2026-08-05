@@ -2474,16 +2474,71 @@ section.py-5 {
     padding-top: 1.75rem;
 }
 
-.app-actions .btn {
-    padding: 0.625rem 1.125rem;
-    font-size: 0.875rem;
+/* Store chips — one uniform pill per platform, so a card with five links
+   reads as a set instead of a row of competing button colours. */
+.store-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 0.8125rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-pill);
+    background: var(--canvas);
+    color: var(--ink);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: var(--shadow-xs);
+    transition: transform var(--dur) var(--ease),
+        box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease),
+        background var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 
-.app-actions .btn i {
-    font-size: 0.9375rem;
+.store-btn i {
+    font-size: 1rem;
+    color: var(--ink-2);
+    transition: color var(--dur) var(--ease);
+}
+
+.store-btn:hover,
+.store-btn:focus-visible {
+    transform: translateY(-2px);
+    background: var(--surface);
+    border-color: var(--brand);
+    color: var(--brand);
+    box-shadow: 0 10px 22px -14px rgba(138, 21, 56, 0.55);
+}
+
+.store-btn:hover i,
+.store-btn:focus-visible i {
+    color: var(--brand);
+}
+
+.store-btn:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+}
+
+/* Secondary destination (the app's own site) — tinted, not louder. */
+.store-btn--site {
+    background: var(--brand-tint);
+    border-color: rgba(138, 21, 56, 0.16);
+    color: var(--brand);
+}
+
+.store-btn--site i {
+    color: var(--brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .store-btn:hover,
+    .store-btn:focus-visible {
+        transform: none;
+    }
 }
 
 @media (max-width: 1199.98px) {
