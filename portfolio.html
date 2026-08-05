@@ -1,44 +1,217 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en-IN" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Our Portfolio — Android &amp; Windows Apps We've Built</title>
     <meta
       name="description"
-      content="Explore the portfolio of Vikramshila Softwares, featuring our latest mobile applications and digital solutions."
+      content="WiMouse, Taskiya and NoWallpaper — the apps Vikramshila Softwares has designed, built and published on Google Play and the Microsoft Store."
+    />
+    <link
+      rel="canonical"
+      href="https://vikramshilasoftwares.in/portfolio.html"
     />
     <meta
-      name="keywords"
-      content="Vikramshila Softwares portfolio, WiMouse app, Taskiya app, NoWallpaper app, mobile app development portfolio"
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
     />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Vikramshila Softwares" />
+    <meta property="og:locale" content="en_IN" />
+    <meta
+      property="og:url"
+      content="https://vikramshilasoftwares.in/portfolio.html"
+    />
+    <meta
+      property="og:title"
+      content="Our Portfolio — Android &amp; Windows Apps We've Built"
+    />
+    <meta
+      property="og:description"
+      content="WiMouse, Taskiya and NoWallpaper — published on Google Play and the Microsoft Store."
+    />
+    <meta
+      property="og:image"
+      content="https://vikramshilasoftwares.in/images/opt/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Vikramshila Softwares — website design and development company, Bhagalpur, Bihar"
+    />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Our Portfolio — Android &amp; Windows Apps We've Built"
+    />
+    <meta
+      name="twitter:description"
+      content="WiMouse, Taskiya and NoWallpaper — published on Google Play and the Microsoft Store."
+    />
+    <meta
+      name="twitter:image"
+      content="https://vikramshilasoftwares.in/images/opt/og-image.jpg"
+    />
+
+    <!-- Icons, manifest, browser chrome -->
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="any" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="apple-touch-icon"
+      href="images/opt/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#8a1538" />
+    <meta name="msapplication-config" content="browserconfig.xml" />
+
+    <!-- Resource hints -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+
+    <!-- Render-blocking on purpose: above-the-fold layout depends on these. -->
+    <link
+      href="vendor/bootstrap.min.css"
       rel="stylesheet"
     />
+    <!-- Preload the body font: it is discovered only after fonts.css parses,
+         so without this the text repaints later than it needs to. -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="fonts/inter.woff2"
+      crossorigin
+    />
+    <link
+      href="fonts/fonts.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="modern-style.css" />
 
+    <!-- Non-critical: decorative icons and scroll animations. -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
     />
-
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
+      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    </noscript>
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <title>
-      Our Portfolio - Mobile Apps & Solutions | Vikramshila Softwares
-    </title>
-    <link rel="stylesheet" href="modern-style.css" />
-    <link rel="icon" href="images/favicon/favicon.ico" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://vikramshilasoftwares.in/portfolio.html#webpage",
+            "url": "https://vikramshilasoftwares.in/portfolio.html",
+            "name": "Our Portfolio — Android & Windows Apps We've Built",
+            "description": "WiMouse, Taskiya and NoWallpaper — published on Google Play and the Microsoft Store.",
+            "inLanguage": "en-IN",
+            "isPartOf": { "@id": "https://vikramshilasoftwares.in/#website" },
+            "about": { "@id": "https://vikramshilasoftwares.in/#organization" },
+            "breadcrumb": {
+              "@id": "https://vikramshilasoftwares.in/portfolio.html#breadcrumb"
+            },
+            "mainEntity": {
+              "@id": "https://vikramshilasoftwares.in/portfolio.html#apps"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://vikramshilasoftwares.in/portfolio.html#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://vikramshilasoftwares.in/"
+              },
+              { "@type": "ListItem", "position": 2, "name": "Portfolio" }
+            ]
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://vikramshilasoftwares.in/portfolio.html#apps",
+            "name": "Apps built by Vikramshila Softwares",
+            "itemListOrder": "https://schema.org/ItemListOrderAscending",
+            "numberOfItems": 3,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "WiMouse: Remote Control",
+                  "description": "Turn your phone into a wireless mouse and keyboard, with touch gestures, remote typing and media controls over local Wi-Fi.",
+                  "applicationCategory": "UtilitiesApplication",
+                  "operatingSystem": "Android, Windows",
+                  "url": "https://wimouse.vikramshilasoftwares.in/",
+                  "downloadUrl": "https://play.google.com/store/apps/details?id=com.vikramshilasoftwares.remote_mouse",
+                  "image": "https://vikramshilasoftwares.in/images/home_new/wimouse.webp",
+                  "author": {
+                    "@id": "https://vikramshilasoftwares.in/#organization"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Taskiya: To-Do List & Tasks",
+                  "description": "A clutter-free task manager with smart reminders and categorisation by Work, Personal or Fitness.",
+                  "applicationCategory": "ProductivityApplication",
+                  "operatingSystem": "Android",
+                  "downloadUrl": "https://play.google.com/store/apps/details?id=com.simple_to_do_app",
+                  "image": "https://vikramshilasoftwares.in/images/home_new/takiya.webp",
+                  "author": {
+                    "@id": "https://vikramshilasoftwares.in/#organization"
+                  }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "NoWallpaper",
+                  "description": "Minimalist and solid-colour backgrounds optimised for AMOLED and OLED displays.",
+                  "applicationCategory": "EntertainmentApplication",
+                  "operatingSystem": "Android",
+                  "downloadUrl": "https://play.google.com/store/apps/details?id=com.vikramshilasoftwares.wallpaper_one",
+                  "image": "https://vikramshilasoftwares.in/images/home_new/nowallpaper.webp",
+                  "author": {
+                    "@id": "https://vikramshilasoftwares.in/#organization"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="top-bar">
       <div class="container">
         <div class="row align-items-center">
@@ -59,21 +232,26 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img
-            src="images/favicon/android-chrome-512x512.png"
-            alt="Vikramshila Softwares Logo"
-            class="logo-img"
-          />
-        </a>
-
-        <a class="navbar-brand" href="index.html">
-          <h3 class="navbar-logo-brand">Vikramshila Softwares</h3>
-        </a>
+            <img
+              src="images/opt/logo-144.png"
+              alt="Vikramshila Softwares"
+              class="logo-img"
+            width="144"
+            height="144"
+            fetchpriority="high"
+            />
+            <span class="navbar-logo-brand"
+              >Vikramshila Softwares<span>Design &amp; Development</span></span
+            >
+          </a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -89,7 +267,7 @@
               <a class="nav-link" href="services.html">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="portfolio.html">Portfolio</a>
+              <a class="nav-link active" aria-current="page" href="portfolio.html">Portfolio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contactus.html">Contact Us</a>
@@ -98,6 +276,8 @@
         </div>
       </div>
     </nav>
+
+    <main id="main">
 
     <section class="page-header">
       <div class="page-header-overlay"></div>
@@ -127,184 +307,196 @@
 
     <section class="portfolio-details py-5">
       <div class="container">
-        <div class="row align-items-center mb-5 pb-4" data-aos="fade-right">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <img
-              src="https://play-lh.googleusercontent.com/R-hk-pkHOc5ZZcHl7zq9KJ_WEj0A1f9tyZ-F9YgP1-sOBiVg9RHpEBxhYFVl8r6nqH7WLKYcr6cQnRSJNPKOOHI=w480-h960-rw"
-              alt="WiMouse App Preview"
-              class="service-detail-img"
-            />
-          </div>
-          <div class="col-lg-6">
-            <div class="service-detail-content">
-              <div class="service-number">01</div>
-              <h3>WiMouse: Remote Control</h3>
-              <p class="lead">
-                Transform your smartphone into a wireless mouse and keyboard.
-              </p>
-              <p>
-                Experience seamless control over your PC directly from your
-                mobile device. WiMouse offers intuitive touch gestures, typing
-                capabilities, and media controls, making presentations and couch
-                browsing entirely effortless.
-              </p>
-
-              <div class="service-highlights mt-4">
-                <div class="highlight-item">
-                  <i class="fas fa-wifi"></i>
-                  <div>
-                    <strong>Wireless Freedom</strong>
-                    <p>Connect easily over your local Wi-Fi network.</p>
-                  </div>
-                </div>
-                <div class="highlight-item">
-                  <i class="fas fa-keyboard"></i>
-                  <div>
-                    <strong>Full Control</strong>
-                    <p>Remote typing and multi-touch gestures supported.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="d-flex flex-wrap gap-3 mt-4">
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.vikramshilasoftwares.remote_mouse&hl=en_IN"
-                  target="_blank"
-                  class="btn btn-primary btn-modern rounded-pill px-4 py-2 shadow-sm d-inline-flex align-items-center"
-                >
-                  <i class="fab fa-google-play me-2 fs-5"></i> Get on Android
-                </a>
-
-                <a
-                  href="https://apps.microsoft.com/detail/9n91qtz4z2x4?hl=en-GB&gl=IN"
-                  target="_blank"
-                  class="btn btn-dark btn-modern rounded-pill px-4 py-2 shadow-sm d-inline-flex align-items-center"
-                >
-                  <i class="fab fa-windows me-2 fs-5"></i> Windows Server
-                </a>
-
-                <a
-                  href="https://wimouse.vikramshilasoftwares.in/"
-                  target="_blank"
-                  class="btn btn-outline-dark btn-modern rounded-pill px-4 py-2 shadow-sm d-inline-flex align-items-center bg-white"
-                >
-                  <i class="fas fa-globe me-2 fs-5"></i> Visit Website
-                </a>
-              </div>
-            </div>
-          </div>
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+          <span class="section-tag">Selected work</span>
+          <h2 class="section-title">Apps We've Built</h2>
+          <p class="section-subtitle">
+            Published on Google Play and the Microsoft Store
+          </p>
         </div>
 
-        <div class="row align-items-center py-5 mb-4" data-aos="fade-left">
-          <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
-            <img
-              src="images/home_new/takiya.webp"
-              alt="Taskiya App Preview"
-              class="service-detail-img"
-            />
-          </div>
-          <div class="col-lg-6 order-lg-1">
-            <div class="service-detail-content text-lg-end">
-              <div class="service-number ms-lg-auto">02</div>
-              <h3>Taskiya: To-Do List & Tasks</h3>
-              <p class="lead">
-                Master your day with the ultimate productivity companion.
-              </p>
-              <p>
-                Taskiya is designed to simplify task management. Whether you're
-                a professional managing complex projects or a student organizing
-                study schedules, Taskiya provides a clutter-free environment to
-                focus on what matters most.
-              </p>
+        <div class="app-grid">
+          <article class="app-card" data-aos="fade-up">
+            <div class="app-card-head">
+              <span class="app-icon">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="images/home_new/wimouse.webp"
+                  width="480"
+                  height="480"
+                  alt="WiMouse app icon"
+                />
+              </span>
+              <span class="app-index">01</span>
+            </div>
 
-              <div class="service-highlights mt-4 justify-content-lg-end">
-                <div class="highlight-item text-start">
-                  <i class="fas fa-bell"></i>
-                  <div>
-                    <strong>Smart Reminders</strong>
-                    <p>Never miss a deadline with push notifications.</p>
-                  </div>
-                </div>
-                <div class="highlight-item text-start">
-                  <i class="fas fa-layer-group"></i>
-                  <div>
-                    <strong>Task Categorization</strong>
-                    <p>Group tasks by Work, Personal, or Fitness.</p>
-                  </div>
-                </div>
-              </div>
+            <h3 class="app-name">WiMouse: Remote Control</h3>
+            <p class="app-tagline">
+              Turn your phone into a wireless mouse and keyboard.
+            </p>
+            <p class="app-desc">
+              Control your PC straight from your phone with touch gestures,
+              typing, and media controls — built for presentations and couch
+              browsing alike.
+            </p>
 
+            <ul class="app-features">
+              <li>
+                <i class="fas fa-wifi"></i>
+                <div>
+                  <strong>Wireless Freedom</strong>
+                  <span>Connects over your local Wi-Fi network.</span>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-keyboard"></i>
+                <div>
+                  <strong>Full Control</strong>
+                  <span>Remote typing and multi-touch gestures.</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="app-actions">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.vikramshilasoftwares.remote_mouse&hl=en_IN"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                <i class="fab fa-google-play"></i> Android
+              </a>
+              <a
+                href="https://apps.microsoft.com/detail/9n91qtz4z2x4?hl=en-GB&gl=IN"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-dark"
+              >
+                <i class="fab fa-windows"></i> Windows
+              </a>
+              <a
+                href="https://wimouse.vikramshilasoftwares.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-dark"
+              >
+                <i class="fas fa-globe"></i> Website
+              </a>
+            </div>
+          </article>
+
+          <article class="app-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="app-card-head">
+              <span class="app-icon">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="images/home_new/takiya.webp"
+                  width="480"
+                  height="480"
+                  alt="Taskiya app icon"
+                />
+              </span>
+              <span class="app-index">02</span>
+            </div>
+
+            <h3 class="app-name">Taskiya: To-Do List &amp; Tasks</h3>
+            <p class="app-tagline">
+              Master your day with a clutter-free task list.
+            </p>
+            <p class="app-desc">
+              Built to simplify task management — whether you're a professional
+              running complex projects or a student organising a study
+              schedule.
+            </p>
+
+            <ul class="app-features">
+              <li>
+                <i class="fas fa-bell"></i>
+                <div>
+                  <strong>Smart Reminders</strong>
+                  <span>Never miss a deadline with push notifications.</span>
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-layer-group"></i>
+                <div>
+                  <strong>Task Categorisation</strong>
+                  <span>Group tasks by Work, Personal, or Fitness.</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="app-actions">
               <a
                 href="https://play.google.com/store/apps/details?id=com.simple_to_do_app&hl=en_IN"
                 target="_blank"
-                class="btn btn-primary btn-modern rounded-pill px-4 py-2 shadow-sm d-inline-flex align-items-center mt-4"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
               >
-                <i class="fab fa-google-play me-2 fs-5"></i> Get on Google Play
+                <i class="fab fa-google-play"></i> Google Play
               </a>
             </div>
-          </div>
-        </div>
+          </article>
 
-        <div class="row align-items-center py-5" data-aos="fade-right">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <img
-              src="images/home_new/nowallpaper.webp"
-              alt="NoWallpaper App Preview"
-              class="service-detail-img"
-            />
-          </div>
-          <div class="col-lg-6">
-            <div class="service-detail-content">
-              <div class="service-number">03</div>
-              <h3>NoWallpaper</h3>
-              <p class="lead">The beauty of minimalism at your fingertips.</p>
-              <p>
-                NoWallpaper challenges the status quo of crowded phone screens.
-                By offering high-quality, minimalist, and solid-color
-                backgrounds, it helps reduce visual fatigue and saves battery on
-                OLED screens.
-              </p>
+          <article class="app-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="app-card-head">
+              <span class="app-icon">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="images/home_new/nowallpaper.webp"
+                  width="480"
+                  height="480"
+                  alt="NoWallpaper app icon"
+                />
+              </span>
+              <span class="app-index">03</span>
+            </div>
 
-              <div class="service-highlights mt-4">
-                <div class="highlight-item">
-                  <i class="fas fa-bolt"></i>
-                  <div>
-                    <strong>Battery Saver</strong>
-                    <p>Optimized for AMOLED & OLED displays.</p>
-                  </div>
+            <h3 class="app-name">NoWallpaper</h3>
+            <p class="app-tagline">
+              The beauty of minimalism at your fingertips.
+            </p>
+            <p class="app-desc">
+              High-quality minimalist and solid-colour backgrounds that cut
+              visual clutter and save battery on OLED screens.
+            </p>
+
+            <ul class="app-features">
+              <li>
+                <i class="fas fa-bolt"></i>
+                <div>
+                  <strong>Battery Saver</strong>
+                  <span>Optimised for AMOLED &amp; OLED displays.</span>
                 </div>
-                <div class="highlight-item">
-                  <i class="fas fa-eye"></i>
-                  <div>
-                    <strong>Zero Distractions</strong>
-                    <p>Clean looks for improved focus.</p>
-                  </div>
+              </li>
+              <li>
+                <i class="fas fa-eye"></i>
+                <div>
+                  <strong>Zero Distractions</strong>
+                  <span>Clean looks for improved focus.</span>
                 </div>
-              </div>
+              </li>
+            </ul>
 
+            <div class="app-actions">
               <a
                 href="https://play.google.com/store/apps/details?id=com.vikramshilasoftwares.wallpaper_one&hl=en_IN"
                 target="_blank"
-                class="btn btn-primary btn-modern rounded-pill px-4 py-2 shadow-sm d-inline-flex align-items-center mt-4"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
               >
-                <i class="fab fa-google-play me-2 fs-5"></i> Get on Google Play
+                <i class="fab fa-google-play"></i> Google Play
               </a>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section
-      class="cta-section py-5 text-center text-white"
-      style="
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--primary-dark)
-        );
-      "
-    >
+    <section class="cta-section py-5 text-center text-white">
       <div class="container" data-aos="fade-up">
         <h2 class="mb-4">Have an Idea for a Mobile App?</h2>
         <p class="lead mb-4">
@@ -319,17 +511,20 @@
       </div>
     </section>
 
+    </main>
+
+
     <footer class="footer-section">
       <div class="container">
         <div class="row g-4">
           <div class="col-lg-4 col-md-6">
-            <div class="footer-brand">Vikramshila Softwares</div>
+            <h2 class="footer-brand">Vikramshila Softwares</h2>
             <p class="footer-text">
               Innovative digital solutions crafted for business excellence.
             </p>
           </div>
           <div class="col-lg-4 col-md-6">
-            <h5 class="footer-heading">Navigate</h5>
+            <h3 class="footer-heading">Navigate</h3>
             <ul class="list-unstyled footer-contact">
               <li><a href="index.html">Home</a></li>
               <li><a href="services.html">Services</a></li>
@@ -337,7 +532,7 @@
             </ul>
           </div>
           <div class="col-lg-4 col-md-12">
-            <h5 class="footer-heading">Get In Touch</h5>
+            <h3 class="footer-heading">Get In Touch</h3>
             <div class="footer-contact">
               <p>
                 <i class="fas fa-phone-alt"></i>
@@ -358,20 +553,11 @@
         </div>
       </div>
     </footer>
+    <!-- Deferred: neither is needed to paint, and parsing them synchronously
+         blocked the main thread exactly when the page becomes interactive. -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="js/site.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script>
-      AOS.init({ duration: 1000, once: false });
-      window.addEventListener("scroll", function () {
-        const navbar = document.querySelector(".navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-    </script>
   </body>
 </html>

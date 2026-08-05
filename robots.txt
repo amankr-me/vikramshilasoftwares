@@ -1,0 +1,21 @@
+# robots.txt for https://vikramshilasoftwares.in/
+# https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt
+
+User-agent: *
+Allow: /
+
+# Superseded page revisions kept in the repo for reference only.
+# These also carry <meta name="robots" content="noindex"> so that any copy
+# already in the index can be dropped — robots.txt alone cannot remove a URL.
+Disallow: /about_old.html
+Disallow: /contactus_old.html
+Disallow: /services_old.html
+Disallow: /index_new.html
+
+# Search-verification stub, no content of its own.
+Disallow: /googlecc025f01af0b18d5.html
+
+# Original unoptimised masters. Serving copies live in /images/opt/.
+Disallow: /images/images/
+
+Sitemap: https://vikramshilasoftwares.in/sitemap.xml
