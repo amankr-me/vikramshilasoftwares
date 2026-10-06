@@ -77,6 +77,103 @@
     onScroll();
   }
 
+  /* --- Card spotlight ----------------------------------------------------
+     Feeds the pointer position into --x/--y so the .glow radial gradient
+     follows the cursor. Fine pointers only; touch gets the static card. */
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (finePointer) {
+    var cardSelector = [
+      ".glow",
+      ".why-choose-card",
+      ".benefit-card",
+      ".quote-card",
+      ".process-step",
+      ".service-category-card",
+      ".contact-info-card",
+      ".why-contact-card",
+      ".app-card",
+      ".why-item",
+      ".pillar",
+    ].join(",");
+    document.querySelectorAll(cardSelector).forEach(function (card) {
+      card.classList.add("glow");
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--x", e.clientX - r.left + "px");
+        card.style.setProperty("--y", e.clientY - r.top + "px");
+      });
+    });
+
+    /* Gentle 3D tilt on the home work cards */
+    if (!reduceMotion) {
+      document.querySelectorAll(".work-card").forEach(function (card) {
+        card.addEventListener("pointermove", function (e) {
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width - 0.5;
+          var py = (e.clientY - r.top) / r.height - 0.5;
+          card.style.setProperty("--ry", (px * 8).toFixed(2) + "deg");
+          card.style.setProperty("--rx", (py * -8).toFixed(2) + "deg");
+        });
+        card.addEventListener("pointerleave", function () {
+          card.style.setProperty("--ry", "0deg");
+          card.style.setProperty("--rx", "0deg");
+        });
+      });
+    }
+  }
+
+  /* --- Scroll progress bar ----------------------------------------------- */
+  var progress = document.createElement("div");
+  progress.className = "scroll-progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.appendChild(progress);
+  var progressTicking = false;
+  var updateProgress = function () {
+    if (progressTicking) return;
+    progressTicking = true;
+    window.requestAnimationFrame(function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.setProperty(
+        "--progress",
+        max > 0 ? Math.min(window.scrollY / max, 1) : 0
+      );
+      progressTicking = false;
+    });
+  };
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  updateProgress();
+
+  /* --- Stat count-up -----------------------------------------------------
+     The final value is already in the markup, so crawlers, no-JS visitors
+     and reduced-motion users all see the real number. */
+  var counters = document.querySelectorAll("[data-count]");
+  if (counters.length && !reduceMotion && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          io.unobserve(entry.target);
+          var el = entry.target;
+          var end = parseInt(el.getAttribute("data-count"), 10);
+          var suffix = el.getAttribute("data-suffix") || "";
+          var start = null;
+          var step = function (t) {
+            if (start === null) start = t;
+            var p = Math.min((t - start) / 1400, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(end * eased) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+      },
+      { threshold: 0.6 }
+    );
+    counters.forEach(function (el) {
+      io.observe(el);
+    });
+  }
+
   /* --- Gallery carousel (about page) -------------------------------------
      data-bs-ride="carousel" already auto-starts it at Bootstrap's 5s default;
      this only shortens the interval. Bootstrap arrives deferred, so wait for

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-IN" dir="ltr">
+<html lang="en-IN" dir="ltr" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,12 +56,13 @@
 
     <!-- Icons, manifest, browser chrome -->
     <link rel="icon" href="images/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="images/brand/logo.svg" type="image/svg+xml" />
     <link
       rel="apple-touch-icon"
       href="images/opt/apple-touch-icon.png"
     />
     <link rel="manifest" href="site.webmanifest" />
-    <meta name="theme-color" content="#8a1538" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="msapplication-config" content="browserconfig.xml" />
 
     <!-- Resource hints: open the TCP + TLS connections to the third-party
@@ -70,14 +71,6 @@
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     <link rel="dns-prefetch" href="https://unpkg.com" />
 
-    <!-- LCP candidate: the hero poster paints immediately; the video file is
-         attached later by js/site.js, and only where it is affordable. -->
-    <link
-      rel="preload"
-      as="image"
-      href="images/opt/hero-poster.jpg"
-      fetchpriority="high"
-    />
 
     <!-- Render-blocking on purpose: above-the-fold layout depends on these. -->
     <link
@@ -90,13 +83,14 @@
       rel="preload"
       as="font"
       type="font/woff2"
-      href="fonts/inter.woff2"
+      href="fonts/plus-jakarta-sans.woff2"
       crossorigin
     />
     <link
       href="fonts/fonts.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="theme.css" />
     <link rel="stylesheet" href="modern-style.css" />
 
     <!-- Non-critical: decorative icons and scroll animations. The media="print"
@@ -246,522 +240,471 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <!-- Top Contact Bar -->
-    <div class="top-bar">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 text-center text-md-start">
-            <a href="mailto:info@vikramshilasoftwares.in" class="top-link">
-              <i class="fas fa-envelope"></i> info@vikramshilasoftwares.in
-            </a>
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            <a href="tel:+917014836734" class="top-link">
-              <i class="fas fa-phone-alt"></i> +91-7014836734
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top site-nav" aria-label="Primary">
       <div class="container">
         <a class="navbar-brand" href="index.html" aria-current="page">
-            <img
-              src="images/opt/logo-144.png"
-              alt="Vikramshila Softwares"
-              class="logo-img"
-              width="144"
-              height="144"
-              fetchpriority="high"
-            />
-            <span class="navbar-logo-brand"
-              >Vikramshila Softwares<span>Design &amp; Development</span></span
-            >
-          </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation menu"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <img src="images/brand/logo.svg" alt="" class="logo-img" width="36" height="36" />
+          <span class="brand-name">Vikramshila <span>Softwares</span></span>
+        </a>
+        <div class="nav-mobile d-lg-none">
+          <a href="tel:+917014836734" class="nav-call" aria-label="Call +91-7014836734"><i class="fas fa-phone-alt" aria-hidden="true"></i></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation menu">
+            <span class="toggler-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+          </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html" aria-current="page"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="portfolio.html">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contactus.html">Contact Us</a>
-            </li>
+          <ul class="navbar-nav mx-lg-auto">
+            <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
           </ul>
+          <a href="contactus.html" class="btn btn-primary nav-cta">Start a project</a>
         </div>
       </div>
     </nav>
 
     <main id="main">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-overlay"></div>
-      <!-- Decorative only. The poster is preloaded and paints as the LCP;
-           js/site.js attaches data-src after load, and skips it entirely on
-           Save-Data, 2G, small screens, or prefers-reduced-motion. -->
-      <video
-        class="hero-video"
-        muted
-        loop
-        playsinline
-        preload="none"
-        poster="images/opt/hero-poster.jpg"
-        data-src="video/opt/hero.mp4"
-        aria-hidden="true"
-        tabindex="-1"
-      ></video>
-      <div class="hero-content">
-        <div class="container">
-          <div class="row justify-content-center text-center">
-            <div class="col-lg-10">
-              <span class="hero-eyebrow" data-aos="fade-up">
-                <i class="fas fa-circle"></i> Trusted by 50+ clients
-              </span>
-              <h1 class="hero-title" data-aos="fade-up" data-aos-delay="50">
-                Website Design And <em>Development</em>
-              </h1>
-              <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
-                One stop destination for all your digital needs
-              </p>
-              <p
-                class="hero-description"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                We merge imagination and technology to help brands grow in an
-                age of digital transformation
-              </p>
-              <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
-                <a href="#contact" class="btn btn-primary btn-lg"
-                  >Get Started</a
-                >
-                <a href="#services" class="btn btn-outline-light btn-lg"
-                  >Our Services</a
-                >
-              </div>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-eyebrow reveal" style="--d: 0ms">
+            <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+            Web &amp; app studio &middot; Serving clients across India
+          </p>
+          <h1 id="hero-title" class="hero-title reveal" style="--d: 80ms">
+            Website design &amp; development that
+            <span class="hero-accent">grows your business</span>
+          </h1>
+          <p class="hero-lead reveal" style="--d: 160ms">
+            We design and build fast, modern websites and Android &amp; iOS
+            apps for businesses across India.
+          </p>
+          <div class="hero-actions reveal" style="--d: 240ms">
+            <a href="contactus.html" class="btn btn-primary btn-lg">
+              Start your project <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="portfolio.html" class="btn btn-secondary btn-lg">View our work</a>
+          </div>
+
+          <div class="hero-proof reveal" style="--d: 320ms">
+            <dl class="hero-stats">
+              <div><dt>Projects delivered</dt><dd>100+</dd></div>
+              <div><dt>Happy clients</dt><dd>50+</dd></div>
+              <div><dt>Years experience</dt><dd>5+</dd></div>
+            </dl>
+            <div class="hero-stores">
+              <p>Our apps are live on</p>
+              <ul>
+                <li><i class="fab fa-google-play" aria-hidden="true"></i> Google Play</li>
+                <li><i class="fab fa-app-store-ios" aria-hidden="true"></i> App Store</li>
+                <li><i class="fab fa-microsoft" aria-hidden="true"></i> Microsoft Store</li>
+                <li><i class="fab fa-apple" aria-hidden="true"></i> macOS</li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-      <div class="scroll-indicator">
-        <i class="fas fa-chevron-down"></i>
+
+        <!-- Decorative composition: a client-site mockup with floating result cards. -->
+        <div class="hero-visual reveal" style="--d: 200ms" aria-hidden="true">
+          <div class="hero-blob"></div>
+          <div class="hero-dots"></div>
+
+          <div class="device-browser">
+            <div class="browser-bar">
+              <span class="browser-dots"><i></i><i></i><i></i></span>
+              <span class="browser-url"><i class="fas fa-lock"></i> yourbusiness.in</span>
+            </div>
+            <div class="browser-page">
+              <div class="bp-nav">
+                <span class="bp-logo"><b></b>YourBrand</span>
+                <span class="bp-links"><i></i><i></i><i></i><b></b></span>
+              </div>
+              <div class="bp-hero">
+                <div class="bp-copy">
+                  <span class="bp-chip">New collection</span>
+                  <strong>Crafted for the way you work.</strong>
+                  <i class="bp-line"></i><i class="bp-line short"></i>
+                  <span class="bp-btns"><b></b><b></b></span>
+                </div>
+                <img class="bp-img" src="images/opt/web-development.jpg" width="1600" height="1200" alt="" decoding="async" />
+              </div>
+              <div class="bp-cards"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+
+          <!-- Floating result cards around the browser mockup -->
+          <div class="hero-float float-speed">
+            <span class="speed-ring" style="--p: 98"><b>98</b></span>
+            <span class="float-text"><strong>Performance</strong><small>PageSpeed &middot; mobile</small></span>
+          </div>
+
+          <div class="hero-float float-lead">
+            <span class="float-icon"><i class="fas fa-envelope-open-text"></i></span>
+            <span class="float-text"><strong>New enquiry</strong><small>From your website &middot; just now</small></span>
+          </div>
+
+          <div class="hero-float float-apps">
+            <span class="app-stack">
+              <img src="images/home_new/wimouse.webp" width="480" height="480" alt="" />
+              <img src="images/home_new/cbse-class10.webp" width="480" height="480" alt="" />
+              <img src="images/home_new/kinetic-lotus.webp" width="480" height="480" alt="" />
+              <img src="images/home_new/vyapari.webp" width="480" height="480" alt="" />
+              <img src="images/home_new/ludo3d.webp" width="480" height="480" alt="" />
+              <img src="images/home_new/takiya.webp" width="480" height="480" alt="" />
+            </span>
+            <span class="float-text"><strong>6 apps live</strong><small>on Google Play</small></span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Who We Are -->
+    <!-- Tech marquee -->
+    <section class="marquee-section" aria-label="Technologies we work with">
+      <p class="marquee-label">Built with modern, proven technology</p>
+      <div class="marquee">
+        <ul class="marquee-track">
+          <li><i class="fab fa-html5"></i> HTML5</li>
+          <li><i class="fab fa-css3-alt"></i> CSS3</li>
+          <li><i class="fab fa-js"></i> JavaScript</li>
+          <li><i class="fab fa-react"></i> React</li>
+          <li><i class="fab fa-node-js"></i> Node.js</li>
+          <li><i class="fab fa-php"></i> PHP</li>
+          <li><i class="fab fa-wordpress"></i> WordPress</li>
+          <li><i class="fab fa-android"></i> Android</li>
+          <li><i class="fab fa-apple"></i> iOS</li>
+          <li><i class="fab fa-figma"></i> Figma</li>
+          <li><i class="fab fa-google-play"></i> Play Store</li>
+        </ul>
+        <ul class="marquee-track" aria-hidden="true">
+          <li><i class="fab fa-html5"></i> HTML5</li>
+          <li><i class="fab fa-css3-alt"></i> CSS3</li>
+          <li><i class="fab fa-js"></i> JavaScript</li>
+          <li><i class="fab fa-react"></i> React</li>
+          <li><i class="fab fa-node-js"></i> Node.js</li>
+          <li><i class="fab fa-php"></i> PHP</li>
+          <li><i class="fab fa-wordpress"></i> WordPress</li>
+          <li><i class="fab fa-android"></i> Android</li>
+          <li><i class="fab fa-apple"></i> iOS</li>
+          <li><i class="fab fa-figma"></i> Figma</li>
+          <li><i class="fab fa-google-play"></i> Play Store</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Intro statement -->
     <section class="intro-section py-5">
       <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-5" data-aos="fade-up">
-            <div class="intro-aside">
-              <span class="section-tag">About us</span>
-              <h2 class="section-title">A web studio for growing businesses</h2>
-              <p class="intro-lead">
-                Vikramshila Softwares designs and develops websites and apps for
-                businesses that want to be found, understood, and trusted
-                online.
-              </p>
-              <a href="about.html" class="service-link">
-                More about us <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-            <div class="intro-list">
-              <div class="intro-item">
-                <span class="intro-icon"><i class="fas fa-users"></i></span>
-                <div class="intro-body">
-                  <h3>Who We Are</h3>
-                  <p>
-                    A web design and development company working with clients
-                    across India and beyond.
-                  </p>
-                </div>
-              </div>
-
-              <div class="intro-item">
-                <span class="intro-icon"><i class="fas fa-bullseye"></i></span>
-                <div class="intro-body">
-                  <h3>Our Aim</h3>
-                  <p>
-                    To help small and medium enterprises get their online
-                    presence felt, with IT services they can rely on.
-                  </p>
-                </div>
-              </div>
-
-              <div class="intro-item">
-                <span class="intro-icon"><i class="fas fa-rocket"></i></span>
-                <div class="intro-body">
-                  <h3>What We Do</h3>
-                  <p>
-                    We design and develop experiences that make people's life
-                    simple — on the web, on Android, and on iOS.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="intro-statement" data-aos="fade-up">
+          <strong>A web studio for growing businesses.</strong> We help small
+          and medium enterprises get found, understood and
+          <em>trusted online</em> &mdash; on the web, on Android and on iOS.
+        </p>
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section py-5">
+    <!-- Services bento -->
+    <section id="services" class="services-section py-5 pt-0">
       <div class="container">
-        <div class="row text-center g-4">
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in">
-            <div class="stat-card">
-              <i class="fas fa-project-diagram"></i>
-              <h3 class="stat-number">100+</h3>
-              <p>Projects Completed</p>
-            </div>
+        <div class="section-header section-split" data-aos="fade-up">
+          <div>
+            <span class="section-tag">What we do</span>
+            <h2 class="section-title">Everything you need to win online</h2>
           </div>
-          <div
-            class="col-lg-3 col-md-6"
-            data-aos="zoom-in"
-            data-aos-delay="100"
-          >
-            <div class="stat-card">
-              <i class="fas fa-smile"></i>
-              <h3 class="stat-number">50+</h3>
-              <p>Happy Clients</p>
-            </div>
-          </div>
-          <div
-            class="col-lg-3 col-md-6"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
-            <div class="stat-card">
-              <i class="fas fa-clock"></i>
-              <h3 class="stat-number">24/7</h3>
-              <p>Support Available</p>
-            </div>
-          </div>
-          <div
-            class="col-lg-3 col-md-6"
-            data-aos="zoom-in"
-            data-aos-delay="300"
-          >
-            <div class="stat-card">
-              <i class="fas fa-award"></i>
-              <h3 class="stat-number">5+</h3>
-              <p>Years Experience</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section py-5">
-      <div class="container">
-        <div class="section-header text-center mb-5" data-aos="fade-up">
-          <span class="section-tag">What we do</span>
-          <h2 class="section-title">Our Services</h2>
           <p class="section-subtitle">
-            Web Design, Web Development & App Development
+            Web design, web development and app development &mdash; one team,
+            from first sketch to launch and beyond.
           </p>
         </div>
 
-        <article class="service-showcase" data-aos="fade-up">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-              <figure class="service-media">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src="images/opt/web-design.jpg"
-                  width="1200"
-                  height="800"
-                  alt="Responsive website design shown on a desktop monitor and a phone"
-                  class="service-img"
-                />
-                <figcaption class="service-media-tag">
-                  <i class="fas fa-palette"></i> Web Design
-                </figcaption>
-              </figure>
+        <div class="bento">
+          <a href="services.html" class="bento-card bento-card--web glow" data-aos="fade-up">
+            <span class="bento-icon"><i class="fas fa-palette"></i></span>
+            <h3>Web design that turns visitors into customers</h3>
+            <p>
+              Clear structure, considered typography and layouts that hold up on
+              a phone as well as a 27-inch display.
+            </p>
+            <ul class="bento-tags">
+              <li>Responsive</li>
+              <li>UI/UX</li>
+              <li>Brand-led visuals</li>
+              <li>SEO-ready</li>
+            </ul>
+            <div class="bento-visual">
+              <img loading="lazy" decoding="async" src="images/opt/web-design.jpg" width="1600" height="1067" alt="" />
             </div>
-            <div class="col-lg-6">
-              <div class="service-content">
-                <span class="service-index">01</span>
-                <h3>Web Design</h3>
-                <p>
-                  We design websites around how people actually use them —
-                  clear structure, considered typography, and layouts that hold
-                  up on a phone as well as a 27-inch display.
-                </p>
-                <ul class="service-features">
-                  <li><i class="fas fa-check"></i> Responsive Design</li>
-                  <li><i class="fas fa-check"></i> User-Centered Interface</li>
-                  <li><i class="fas fa-check"></i> Modern Aesthetics</li>
-                  <li><i class="fas fa-check"></i> Brand-Led Visuals</li>
-                </ul>
-                <a href="services.html" class="service-link">
-                  Explore web design <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
+          </a>
 
-        <article class="service-showcase" data-aos="fade-up">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-6 order-lg-2">
-              <figure class="service-media">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src="images/opt/web-development.jpg"
-                  width="1200"
-                  height="1161"
-                  alt="Web application source code open on a laptop screen"
-                  class="service-img"
-                />
-                <figcaption class="service-media-tag">
-                  <i class="fas fa-code"></i> Web Development
-                </figcaption>
-              </figure>
-            </div>
-            <div class="col-lg-6 order-lg-1">
-              <div class="service-content">
-                <span class="service-index">02</span>
-                <h3>Web Development</h3>
-                <p>
-                  From a simple brochure site to a database-driven platform, we
-                  build with Node.js, PHP, and ASP — writing code that stays
-                  fast, secure, and straightforward to maintain.
-                </p>
-                <ul class="service-features">
-                  <li><i class="fas fa-check"></i> Custom Development</li>
-                  <li><i class="fas fa-check"></i> Database Integration</li>
-                  <li><i class="fas fa-check"></i> Secure &amp; Scalable</li>
-                  <li><i class="fas fa-check"></i> CMS &amp; E-commerce</li>
-                </ul>
-                <a href="services.html" class="service-link">
-                  Explore development <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
+          <a href="services.html" class="bento-card bento-card--dev glow" data-aos="fade-up" data-aos-delay="80">
+            <span class="bento-icon"><i class="fas fa-code"></i></span>
+            <h3>Web development</h3>
+            <p>Fast, secure, database-driven sites built with Node.js, PHP and ASP.</p>
+<pre class="bento-code"><span class="k">const</span> site = <span class="f">build</span>({
+  fast: <span class="k">true</span>,
+  secure: <span class="k">true</span>,
+  scale: <span class="s">'with you'</span>
+});</pre>
+          </a>
 
-        <article class="service-showcase" data-aos="fade-up">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-              <figure class="service-media">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src="images/opt/app-development.jpg"
-                  width="1200"
-                  height="797"
-                  alt="Mobile app screens being sketched beside a smartphone"
-                  class="service-img"
-                />
-                <figcaption class="service-media-tag">
-                  <i class="fas fa-mobile-alt"></i> App Development
-                </figcaption>
-              </figure>
+          <a href="portfolio.html" class="bento-card bento-card--app glow" data-aos="fade-up" data-aos-delay="160">
+            <span class="bento-icon"><i class="fas fa-mobile-alt"></i></span>
+            <h3>App development</h3>
+            <p>Android &amp; iOS apps, shipped to the store and supported after launch.</p>
+            <div class="bento-apps">
+              <img loading="lazy" src="images/home_new/wimouse.webp" width="480" height="480" alt="" />
+              <img loading="lazy" src="images/home_new/ludo3d.webp" width="480" height="480" alt="" />
+              <img loading="lazy" src="images/home_new/takiya.webp" width="480" height="480" alt="" />
+              <img loading="lazy" src="images/home_new/cbse-class10.webp" width="480" height="480" alt="" />
+              <img loading="lazy" src="images/home_new/vyapari.webp" width="480" height="480" alt="" />
             </div>
-            <div class="col-lg-6">
-              <div class="service-content">
-                <span class="service-index">03</span>
-                <h3>App Development</h3>
-                <p>
-                  Native and cross-platform apps for Android and iOS — the same
-                  care for detail we bring to the web, shipped to the store and
-                  supported after launch.
-                </p>
-                <ul class="service-features">
-                  <li><i class="fas fa-check"></i> Android Development</li>
-                  <li><i class="fas fa-check"></i> iOS Development</li>
-                  <li><i class="fas fa-check"></i> Cross-Platform Solutions</li>
-                  <li><i class="fas fa-check"></i> Store Release &amp; Support</li>
-                </ul>
-                <a href="portfolio.html" class="service-link">
-                  See our apps <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
+          </a>
+
+          <a href="services.html" class="bento-card bento-card--shop glow" data-aos="fade-up">
+            <span class="bento-icon"><i class="fas fa-shopping-bag"></i></span>
+            <h3>E-commerce &amp; CMS</h3>
+            <p>
+              Online stores with payments, inventory and an admin panel you can
+              actually use.
+            </p>
+            <span class="bento-more">Explore services <i class="fas fa-arrow-right"></i></span>
+          </a>
+
+          <a href="services.html" class="bento-card bento-card--care glow" data-aos="fade-up" data-aos-delay="80">
+            <span class="bento-icon"><i class="fas fa-shield-alt"></i></span>
+            <h3>Support &amp; maintenance</h3>
+            <p>
+              Security updates, backups and performance tuning &mdash; so your
+              site keeps working while you run your business.
+            </p>
+            <span class="bento-more">Explore services <i class="fas fa-arrow-right"></i></span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="why-choose-section py-5">
+    <!-- Stats -->
+    <section class="stats-section" aria-label="Vikramshila Softwares in numbers">
       <div class="container">
-        <div class="section-header text-center mb-5" data-aos="fade-up">
-          <span class="section-tag">The difference</span>
-          <h2 class="section-title">Why Choose Us</h2>
-          <p class="section-subtitle">What makes us different</p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6" data-aos="flip-left">
-            <div class="why-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <h3>Attract Right Visitors</h3>
-              <p>
-                A successful website attracts the right kinds of visitors and
-                guides them to your main services or products.
-              </p>
-            </div>
+        <div class="stats-band">
+          <div class="stat-card" data-aos="fade-up">
+            <h3 class="stat-number" data-count="100" data-suffix="+">100+</h3>
+            <p>Projects completed</p>
           </div>
-
-          <div
-            class="col-lg-4 col-md-6"
-            data-aos="flip-left"
-            data-aos-delay="100"
-          >
-            <div class="why-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <h3>Quality Investment</h3>
-              <p>
-                "Getting a quality website is not an expense but rather an
-                investment." - Dr. Christopher Dayagdag
-              </p>
-            </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="80">
+            <h3 class="stat-number" data-count="50" data-suffix="+">50+</h3>
+            <p>Happy clients</p>
           </div>
-
-          <div
-            class="col-lg-4 col-md-6"
-            data-aos="flip-left"
-            data-aos-delay="200"
-          >
-            <div class="why-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <h3>Responsive Design</h3>
-              <p>
-                If you're pinching your website to make it more visible, then
-                it's time to upgrade to a responsive design.
-              </p>
-            </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="160">
+            <h3 class="stat-number">24/7</h3>
+            <p>Support available</p>
           </div>
-
-          <div
-            class="col-lg-4 col-md-6"
-            data-aos="flip-left"
-            data-aos-delay="300"
-          >
-            <div class="why-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <h3>Device Compatible</h3>
-              <p>
-                A device-compatible website works on all your devices,
-                maximizing your customer's experience.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class="col-lg-4 col-md-6"
-            data-aos="flip-left"
-            data-aos-delay="400"
-          >
-            <div class="why-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <h3>Mobile-Friendly</h3>
-              <p>
-                The current population is moving towards mobile view, making
-                mobile-friendly design essential.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class="col-lg-4 col-md-6"
-            data-aos="flip-left"
-            data-aos-delay="500"
-          >
-            <div class="why-card">
-              <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-              <h3>Client-First Approach</h3>
-              <p>
-                We love what we do and create thoughtful, purposeful websites
-                that our clients love.
-              </p>
-            </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="240">
+            <h3 class="stat-number" data-count="5" data-suffix="+">5+</h3>
+            <p>Years experience</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Selected work -->
+    <section class="work-section py-5">
+      <div class="container">
+        <div class="section-header section-split" data-aos="fade-up">
+          <div>
+            <span class="section-tag">Selected work</span>
+            <h2 class="section-title">Apps we&rsquo;ve shipped</h2>
+          </div>
+          <a href="portfolio.html" class="btn btn-outline-light"
+            >View full portfolio <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="work-grid">
+          <a href="portfolio.html" class="work-card" data-aos="fade-up" style="--art: radial-gradient(90% 90% at 50% 100%, #ddd6fe 0%, #f5f3ff 75%)">
+            <div class="work-art"><img loading="lazy" decoding="async" src="images/home_new/wimouse.webp" width="480" height="480" alt="WiMouse app icon" /></div>
+            <div class="work-body">
+              <span class="work-name">WiMouse <i class="fas fa-arrow-right"></i></span>
+              <span class="work-meta">Turn your phone into a wireless mouse &amp; keyboard</span>
+              <div class="work-platforms"><i class="fab fa-android"></i><i class="fab fa-apple"></i><i class="fab fa-windows"></i></div>
+            </div>
+          </a>
+          <a href="portfolio.html" class="work-card" data-aos="fade-up" data-aos-delay="80" style="--art: radial-gradient(90% 90% at 50% 100%, #fde68a 0%, #fffbeb 75%)">
+            <div class="work-art"><img loading="lazy" decoding="async" src="images/home_new/kinetic-lotus.webp" width="480" height="480" alt="Kinetic Lotus app icon" /></div>
+            <div class="work-body">
+              <span class="work-name">Kinetic Lotus <i class="fas fa-arrow-right"></i></span>
+              <span class="work-meta">A relaxing physics puzzle game</span>
+              <div class="work-platforms"><i class="fab fa-android"></i><i class="fab fa-apple"></i></div>
+            </div>
+          </a>
+          <a href="portfolio.html" class="work-card" data-aos="fade-up" data-aos-delay="160" style="--art: radial-gradient(90% 90% at 50% 100%, #bfdbfe 0%, #eff6ff 75%)">
+            <div class="work-art"><img loading="lazy" decoding="async" src="images/home_new/vyapari.webp" width="480" height="480" alt="Vyapari app icon" /></div>
+            <div class="work-body">
+              <span class="work-name">Vyapari <i class="fas fa-arrow-right"></i></span>
+              <span class="work-meta">Global property trading board game</span>
+              <div class="work-platforms"><i class="fab fa-android"></i><i class="fab fa-apple"></i></div>
+            </div>
+          </a>
+          <a href="portfolio.html" class="work-card" data-aos="fade-up" style="--art: radial-gradient(90% 90% at 50% 100%, #bbf7d0 0%, #f0fdf4 75%)">
+            <div class="work-art"><img loading="lazy" decoding="async" src="images/home_new/ludo3d.webp" width="480" height="480" alt="Ludo 3D app icon" /></div>
+            <div class="work-body">
+              <span class="work-name">Ludo 3D <i class="fas fa-arrow-right"></i></span>
+              <span class="work-meta">Ludo and Snakes &amp; Ladders on a 3D table</span>
+              <div class="work-platforms"><i class="fab fa-android"></i><i class="fab fa-apple"></i></div>
+            </div>
+          </a>
+          <a href="portfolio.html" class="work-card" data-aos="fade-up" data-aos-delay="80" style="--art: radial-gradient(90% 90% at 50% 100%, #c7d2fe 0%, #eef2ff 75%)">
+            <div class="work-art"><img loading="lazy" decoding="async" src="images/home_new/takiya.webp" width="480" height="480" alt="Taskiya app icon" /></div>
+            <div class="work-body">
+              <span class="work-name">Taskiya <i class="fas fa-arrow-right"></i></span>
+              <span class="work-meta">Clutter-free to-do lists &amp; tasks</span>
+              <div class="work-platforms"><i class="fab fa-android"></i></div>
+            </div>
+          </a>
+          <a href="portfolio.html" class="work-card" data-aos="fade-up" data-aos-delay="160" style="--art: radial-gradient(90% 90% at 50% 100%, #f5d0fe 0%, #fdf4ff 75%)">
+            <div class="work-art"><img loading="lazy" decoding="async" src="images/home_new/cbse-class10.webp" width="480" height="480" alt="CBSE Class 10 Companion app icon" /></div>
+            <div class="work-body">
+              <span class="work-name">CBSE Class 10 <i class="fas fa-arrow-right"></i></span>
+              <span class="work-meta">Every Class 10 resource in one app</span>
+              <div class="work-platforms"><i class="fab fa-android"></i><i class="fab fa-apple"></i></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process-home py-5 pt-0">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <span class="section-tag">How we work</span>
+          <h2 class="section-title">From idea to launch in four steps</h2>
+          <p class="section-subtitle">
+            A simple, transparent process &mdash; you always know what&rsquo;s
+            happening and what comes next.
+          </p>
+        </div>
+        <ol class="process-track">
+          <li data-aos="fade-up">
+            <span class="process-dot">01</span>
+            <h3>Consult</h3>
+            <p>We learn about your business, goals and audience &mdash; free.</p>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="80">
+            <span class="process-dot">02</span>
+            <h3>Design</h3>
+            <p>Wireframes and visual designs you review before any code is written.</p>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="160">
+            <span class="process-dot">03</span>
+            <h3>Build</h3>
+            <p>Clean, fast, secure development, tested on real phones and browsers.</p>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="240">
+            <span class="process-dot">04</span>
+            <h3>Launch &amp; grow</h3>
+            <p>We go live, hand over, and stay on for support and improvements.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Why choose us -->
+    <section class="why-choose-section py-5 pt-0">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <span class="section-tag">The difference</span>
+          <h2 class="section-title">Why businesses choose us</h2>
+        </div>
+        <div class="why-grid" data-aos="fade-up">
+          <div class="why-item">
+            <i class="fas fa-bullseye"></i>
+            <h3>Attract the right visitors</h3>
+            <p>Sites structured to bring in the right people and guide them to your services.</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-chart-line"></i>
+            <h3>An investment, not an expense</h3>
+            <p>A quality website keeps working for your business long after launch.</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Mobile-first, always</h3>
+            <p>Most visitors arrive on a phone, so every page is designed for it first.</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-laptop"></i>
+            <h3>Works on every device</h3>
+            <p>Tested across phones, tablets and desktops for a seamless experience.</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-tachometer-alt"></i>
+            <h3>Fast &amp; SEO-ready</h3>
+            <p>Lightweight builds that load quickly and are ready to be found on Google.</p>
+          </div>
+          <div class="why-item">
+            <i class="fas fa-heart"></i>
+            <h3>Client-first approach</h3>
+            <p>We love what we do, and build thoughtful, purposeful work our clients love.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
     <section id="contact" class="contact-section py-5">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center" data-aos="fade-up">
-            <h2 class="section-title text-white mb-4">Get In Touch</h2>
-            <h3 class="contact-subtitle mb-4">
-              If you need a website, we are here for you!
-            </h3>
-            <p class="contact-text mb-4">
-              Whether you need a website for your business or a personal site?
-              Let's talk about how awesome we can build for you!
-            </p>
-            <a
-              href="contactus.html"
-              class="btn btn-light btn-lg"
+        <div class="cta-panel" data-aos="fade-up">
+          <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="grid-bg" aria-hidden="true"></div>
+          <span class="section-tag">Let&rsquo;s talk</span>
+          <h2>Let&rsquo;s build something <span class="grad-text">great together.</span></h2>
+          <p>
+            Tell us about your website or app idea. The first consultation is
+            free, and we reply within one business day.
+          </p>
+          <div class="cta-panel-actions">
+            <a href="contactus.html" class="btn btn-light btn-lg"
+              >Start your project <i class="fas fa-arrow-right"></i
+            ></a>
+            <a href="tel:+917014836734" class="btn btn-outline-light btn-lg"
+              ><i class="fas fa-phone-alt"></i> +91-7014836734</a
             >
-              <i class="fas fa-envelope me-2"></i> Contact Us
-            </a>
           </div>
         </div>
       </div>
     </section>
-
     </main>
 
     <!-- Footer -->
     <footer class="footer-section">
       <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-7">
-            <h2 class="footer-brand">Vikramshila Softwares</h2>
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <a href="index.html" class="footer-logo">
+              <img
+                loading="lazy"
+                src="images/brand/logo.svg"
+                alt=""
+                width="144"
+                height="144"
+              />
+              <span class="footer-brand">Vikramshila Softwares</span>
+            </a>
             <p class="footer-text">
-              We collaborate with ambitious brands and people; let's build
-              something great together.
+              A web and app studio working with businesses across India. We collaborate with
+              ambitious brands and people &mdash; let's build something great
+              together.
             </p>
             <div class="social-links">
-              <!-- TODO: the Twitter/Facebook/Instagram icons pointed at href="#",
-                   which scrolls to the top and reads as a broken link to both
-                   users and crawlers. Restore each one with its real profile URL
-                   (and add the same URLs to "sameAs" in the Organization JSON-LD
-                   above, which is how Google links a site to its social profiles):
-              <a href="https://twitter.com/YOUR_HANDLE" rel="noopener" target="_blank" aria-label="Vikramshila Softwares on Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.facebook.com/YOUR_PAGE" rel="noopener" target="_blank" aria-label="Vikramshila Softwares on Facebook"><i class="fab fa-facebook-f"></i></a>
+              <!-- TODO: add real social profile URLs here (and to "sameAs" in
+                   the Organization JSON-LD on index.html) once they exist:
               <a href="https://www.instagram.com/YOUR_HANDLE" rel="noopener" target="_blank" aria-label="Vikramshila Softwares on Instagram"><i class="fab fa-instagram"></i></a>
               -->
-              <a
-                href="tel:+917014836734"
-                aria-label="Call Vikramshila Softwares"
+              <a href="tel:+917014836734" aria-label="Call Vikramshila Softwares"
                 ><i class="fas fa-phone-alt"></i
               ></a>
               <a
@@ -771,10 +714,27 @@
               ></a>
             </div>
           </div>
-          <div class="col-lg-5">
-            <h3 class="footer-heading">Contact Us</h3>
+          <div class="col-6 col-lg-2 offset-lg-1">
+            <h2 class="footer-heading">Company</h2>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h2 class="footer-heading">Services</h2>
+            <ul class="footer-links">
+              <li><a href="services.html">Web Design</a></li>
+              <li><a href="services.html">Web Development</a></li>
+              <li><a href="services.html">App Development</a></li>
+              <li><a href="services.html">E-commerce</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h2 class="footer-heading">Get in touch</h2>
             <div class="footer-contact">
-              <!-- <p><i class="fas fa-map-marker-alt"></i> Near Head Post Office,<br>Bhagalpur, Bihar-812001</p> -->
               <p>
                 <i class="fas fa-phone-alt"></i>
                 <a href="tel:+917014836734">+91-7014836734</a>
@@ -789,9 +749,11 @@
           </div>
         </div>
         <hr class="footer-divider" />
-        <div class="text-center copyright">
-          <p>© Copyright 2026 Vikramshila Softwares. All Rights Reserved.</p>
+        <div class="copyright">
+          <p>&copy; 2026 Vikramshila Softwares. All rights reserved.</p>
+          <p>Designed &amp; built in India</p>
         </div>
+        <p class="footer-wordmark" aria-hidden="true">Vikramshila</p>
       </div>
     </footer>
 
